@@ -32,7 +32,7 @@
         </div>
       </div>
       <div class="main-smart col-9 " >
-        <div class="row justify-center" style="width: 100%">
+        <div class="row justify-center" style="width: 100%;">
           <div class="form-container">
             <div class=" q-pt-md  q-gutter-md q-pb-md">
               <div v-if="tampil" class="q-gutter-md">
@@ -265,6 +265,11 @@
               </q-form>
             </div>
             <div v-else>
+               <div>
+                  <q-dialog v-model="openFlag">
+                 <Flag v-model="openFlag" />
+                  </q-dialog>
+              </div>
               <q-card style=" width: 120%;">
                 <q-card-actions class="bg-primary" align="between">
                   <div class="">
@@ -272,6 +277,7 @@
                   </div>
                   <div class=" q-gutter-sm " >
                     <q-btn
+                    @click="openFlag = true"
                       flat
                       class="bg-red text-capitalize"
                       dense
@@ -289,6 +295,7 @@
                     />
                     <q-btn
                       flat
+                      @click="regenerated()"
                        class="text-capitalize"
                       dense
                       color="black"
@@ -345,6 +352,7 @@
                       <div class="text-center q-gutter-sm" style="margin-bottom: -90px;">
                         <q-btn
                       flat
+                      @click="openFlag = true"
                       class="bg-red text-capitalize"
                       dense
                       color="white"
@@ -361,6 +369,7 @@
                     />
                     <q-btn
                       flat
+                      @click="regenerated()"
                        class="text-capitalize"
                       dense
                       color="black"
@@ -387,9 +396,15 @@
 </template>
 
 <script>
+import Flag from 'pages/Modal.vue'
 export default {
+  components: {
+    Flag
+  },
   data () {
     return {
+      openFlag: false,
+      question: 'test',
       step3: false,
       active: null,
       issetActive: '',
@@ -429,7 +444,7 @@ export default {
           topics: 'Any Standart',
           anyTopics: 'AnyTopics',
           descriptions:
-            'firest index Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+            'first index Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
           learningObjectives: 'Any Heuristic',
           questionTypesMqc: true,
           difficultyLevelEasy: true
@@ -563,16 +578,6 @@ export default {
     moveArrayItemToNewIndex (oldIndex, newIndex) {
       console.log(oldIndex, newIndex)
       const arr = [...this.questions]
-
-      // if (newIndex >= arr.length) {
-      //     let k = newIndex - arr.length;
-      //     while (k--) {
-      //         arr.push(undefined);
-      //     }
-      // }
-
-      // arr.splice(newIndex, 0, arr.splice(oldIndex, 1)[0]);
-
       const tempquestions = arr[oldIndex]
       arr[oldIndex] = arr[newIndex]
       arr[newIndex] = tempquestions
@@ -610,9 +615,14 @@ export default {
       for (button in buttons) {
         console.log('btn', buttons[button])
       }
+    },
+    regenerated () {
+      this.random = Math.floor(Math.random() * 3) + 0
+
+      this.question = this.questionlist[this.random]
+      console.log(this.question)
     }
-  },
-  mounted () {}
+  }
 }
 </script>
 
