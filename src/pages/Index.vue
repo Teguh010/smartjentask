@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="row-ku row ">
+    <div class="row-ku row " style="background: #F0FFFC">
       <div class="side-smart col-3 bg-grey ">
         <div class="row q-gutter-x-md justify-center">
           <h2 class="text-white">Smart</h2>
@@ -31,7 +31,7 @@
           </div>
         </div>
       </div>
-      <div class="main-smart col-9 ">
+      <div class="main-smart col-9 " >
         <div class="row justify-center" style="width: 100%">
           <div class="form-container">
             <div class=" q-pt-md  q-gutter-md q-pb-md">
@@ -51,8 +51,8 @@
                 <q-icon name="fas fa-circle" color="blue" size="10px;" />
               </div>
             </div>
-            <div v-if="tampil" class="bg-grey-3">
-              <q-form @submit="clickquestions">
+            <div v-if="tampil" >
+              <q-form @submit="clickquestions" class="q-pa-md shadow-3" style="background:#F0FFFC;">
                 <div class="col q-pt-lg">
                   <div class="q-pl-md q-pt-md" style="margin-bottom: -10px;">
                     Question Bank
@@ -73,7 +73,6 @@
                         val="private"
                         label="Private Question"
                       />
-                      <p class="q-pt-md">Private Question</p>
                     </div>
                   </div>
                   <hr class="doted" />
@@ -215,12 +214,18 @@
                 </div>
                 <div class="q-px-sm row justify-left">
                   <div class="q-gutter-sm row">
-                    <q-checkbox v-model="questionsTypesMcq" />
-                    <p class="q-pt-md">MCQ</p>
+                    <q-radio
+                        v-model="questionsTypesMcq"
+                        val="MCQ"
+                        label="MCQ"
+                      />
                   </div>
                   <div class="q-gutter-sm row q-pl-xl">
-                    <q-checkbox v-model="questionsTypesNonMcq" />
-                    <p class="q-pt-md">Non-MCQ</p>
+                     <q-radio
+                        v-model="questionsTypesMcq"
+                        val="Non-MCQ"
+                        label="Non-MCQ"
+                      />
                   </div>
                 </div>
                 <div class="q-pt-md">
@@ -247,42 +252,7 @@
                     <p class="q-pt-md">Genius</p>
                   </div>
                 </div>
-                <!-- <div class="row ">
-              <div class="col-4 q-pa-md">
-                <q-select
-                  outlined
-                  v-model="questionsCategory"
-                  :options="options"
-                  label="Outlined"
-                />
-              </div>
-              <div class="col-4 q-pa-md">
-                <q-select
-                  outlined
-                  v-model="questionsGender"
-                  :options="optionsGender"
-                  label="Outlined"
-                />
-              </div>
-              <div class="col-4 q-pa-md">
-                <q-select
-                  outlined
-                  v-model="questionsHobby"
-                  :options="optionsHobby"
-                  label="Outlined"
-                />
-              </div>
-              <div class="col-4 q-pa-md">
-                <q-select
-                  outlined
-                  v-model="questionsId"
-                  :options="optionsId"
-                  label="Outlined"
-                />
-              </div>
-            </div> -->
-
-                <div class="q-pl-md q-pb-lg">
+                <div class="q-pl-md q-pb-lg q-pt-md">
                   <q-btn label="Submit" type="submit" color="primary" />
                   <q-btn
                     label="Reset"
@@ -295,74 +265,35 @@
               </q-form>
             </div>
             <div v-else>
-              <!-- <div v-for="question in questions" :key="question.id">
-            <div class="bg-red">
-              <h4>{{ question.name }}</h4>
-            </div>
-          </div> -->
-
-              <!-- <div class="q-pa-md" style="max-width: 550px">
-                <transition-group name="list" tag="div" class="index">
-                  <q-list
-                    v-for="(question, index) in questions"
-                    :key="question.id"
-                  >
-                    <q-item>
-                      <q-item-section class="bg-black">
-                        <q-item-label>{{ question.nama }}</q-item-label>
-                        <q-item-label>{{ index + 1 }}</q-item-label>
-                        <q-item-label caption lines="2">{{
-                          question.descriptions
-                        }}</q-item-label>
-                      </q-item-section>
-
-                      <q-item-section side top>
-                        <q-select
-                          style="width: 100px;"
-                          :options="optionsTrain"
-                          label="Standard"
-                          :value="index + 1"
-                          @input="
-                            newIndex =>
-                              moveArrayItemToNewIndex(index, newIndex - 1)
-                          "
-                        />
-                      </q-item-section>
-                    </q-item>
-
-                    <q-separator spaced inset />
-                  </q-list>
-                </transition-group>
-              </div> -->
               <q-card style=" width: 120%;">
                 <q-card-actions class="bg-primary" align="between">
                   <div class="">
                     <div class="text-h6 text-white">Generate Question</div>
                   </div>
-                  <div class=" q-gutter-sm ">
+                  <div class=" q-gutter-sm " >
                     <q-btn
                       flat
                       class="bg-red text-capitalize"
                       dense
-                      color="white"
+                      color="black"
                       label="flag"
                       style="width: 90px;"
                     />
                     <q-btn
                       flat
-                       class="bg-blue text-capitalize"
+                       class="text-capitalize"
                       dense
-                      color="white"
+                      color="black"
                       label="Mqc"
-                      style="width: 90px;"
+                      style="width: 90px; background: #93F0EB"
                     />
                     <q-btn
                       flat
-                       class="bg-orange text-capitalize"
+                       class="text-capitalize"
                       dense
-                      color="white"
-                      label="Regenerated"
-                      style="width: 90px;"
+                      color="black"
+                      label="Regenerated All"
+                      style="width: 120px; background: #62F883"
                     />
                   </div>
                 </q-card-actions>
@@ -378,7 +309,7 @@
                         style="border-radius: 20px; height:30px; width: 120px; background:#FED33B"
                       >
                         <q-select
-                          input-style="color:white"
+                          input-style="color:white;"
                           style="height:38px !important;"
                           behavior="menu"
                           borderless
@@ -394,11 +325,11 @@
                     </div>
 
                     <div class=" q-gutter-sm q-pr-md">
-                      <div>
+                      <div class="text-red">
                         [Whole Numbers] Addition and Substraction of Whole
                         Numbers
                       </div>
-                      <div class="text-right">
+                      <div class="text-right text-red">
                         ( 2 Mark, Normal )
                       </div>
                     </div>
@@ -422,19 +353,19 @@
                     />
                     <q-btn
                       flat
-                       class="bg-blue text-capitalize"
+                       class="text-capitalize"
                       dense
-                      color="white"
+                      color="black"
                       label="Mqc"
-                      style="width: 90px;"
+                      style="width: 90px; background: #93F0EB;"
                     />
                     <q-btn
                       flat
-                       class="bg-orange text-capitalize"
+                       class="text-capitalize"
                       dense
-                      color="white"
+                      color="black"
                       label="Regenerated"
-                      style="width: 90px;"
+                      style="width: 90px; background: #62F883"
                     />
                       </div>
                     </div>
@@ -482,8 +413,7 @@ export default {
       topicsOptions: ['All', 'Any Standart'],
       anyTopicsOptions: ['All', 'Any Topics'],
       learningObjectivesOptions: ['All', 'Any Heuristic'],
-      questionsTypesMcq: true,
-      questionsTypesNonMcq: false,
+      questionsTypesMcq: 'MCQ',
 
       difficultyLevelOptionsEasy: true,
       difficultyLevelOptionsNormal: false,
@@ -680,21 +610,6 @@ export default {
       for (button in buttons) {
         console.log('btn', buttons[button])
       }
-      //     this.buttons.forEach(function(button) {
-
-      //     buttonid : this.button.id
-      //     console.log(buttonid)
-      // });
-      // var i;
-      // for (i = 0; i < buttons.length; i++) {
-      //   text += cars[i] + "<br>";
-      // }
-      // if (this.buttons.id == 1) {
-      //   this.button = 1;
-      // } else if (this.buttons.id == 2) {
-      //   this.button = 2;
-      // }
-      // console.log(this.button);
     }
   },
   mounted () {}
@@ -702,6 +617,11 @@ export default {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;800;600&display=swap');
+.container{
+  font-family: 'Open Sans', sans-serif;
+  font-weight:500;
+}
 .doted {
   border-top: 2px dashed #000;
   width: 93%;
