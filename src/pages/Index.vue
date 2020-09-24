@@ -337,7 +337,7 @@
               <q-card style=" width: 120%;">
                 <q-card-actions class="bg-primary" align="between">
                   <div class="">
-                    <div class="text-h6">Generate Question</div>
+                    <div class="text-h6 text-white">Generate Question</div>
                   </div>
                   <div class=" q-gutter-sm ">
                     <q-btn
@@ -368,15 +368,17 @@
                 </q-card-actions>
               </q-card>
               <q-scroll-area style="height: 700px; width: 120%;">
-              <div v-for="(question, index) in questions" :key="question.id">
-                <q-card class="" style=" width: 100%;">
+              <div >
+                 <transition-group name="list" tag="div">
+                <q-card v-for="(question, index) in questions" :key="question.id" class="" style=" width: 100%;">
                   <q-card-actions style="background-color:#FFF1BD;" align="between">
                     <div class="">
                       <div
-                        class="col bg-grey-3 "
-                        style="border-radius: 20px; height:30px; width: 120px;"
+                        class="col "
+                        style="border-radius: 20px; height:30px; width: 120px; background:#FED33B"
                       >
                         <q-select
+                          input-style="color:white"
                           style="height:38px !important;"
                           behavior="menu"
                           borderless
@@ -439,6 +441,7 @@
                     </div>
                   </q-card-actions>
                 </q-card>
+                </transition-group>
               </div>
                 </q-scroll-area>
               <div class="text-right" style="margin-right: -100px;">
