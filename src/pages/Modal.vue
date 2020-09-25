@@ -1,8 +1,5 @@
 <template>
   <div>
-    <div>
-      <q-btn label="flag" @click="openFlag = true" />
-    </div>
     <q-card style="width: 100%">
       <div class="bg-red">
         <div class="q-pa-md text-white" style="font-size: 18px;">

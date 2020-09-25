@@ -1,12 +1,12 @@
 <template>
-  <div class="container">
-    <div class="row-ku row " style="background: #F0FFFC">
-      <div class="side-smart col-3 bg-grey ">
-        <div class="row q-gutter-x-md justify-center">
+  <div >
+    <div  style="background: #F0FFFC">
+      <div v-if="tampil" class="sidebar bg-primary ">
+        <div class="row q-gutter-x-md justify-center q-pt-lg">
           <h2 class="text-white">Smart</h2>
           <h2 class="text-bold text-white">Jen</h2>
         </div>
-        <div style="margin-top: -30px;">
+        <div style="margin-top: 30px;">
           <hr class="hr-smart" />
         </div>
         <div class="q-pt-md">
@@ -31,34 +31,22 @@
           </div>
         </div>
       </div>
-      <div class="main-smart col-9 " >
-        <div class="row justify-center" style="width: 100%;">
-          <div class="form-container">
-            <div class=" q-pt-md  q-gutter-md q-pb-md">
-              <div v-if="tampil" class="q-gutter-md">
+      <div  >
+          <div >
+            <div v-if="tampil" class="content ">
+              <div  class="q-gutter-md q-py-md">
                 <q-icon name="fas fa-circle" color="blue" size="10px;" />
                 <q-icon name="fas fa-circle" color="grey-4" size="10px;" />
                 <q-icon name="fas fa-circle" color="grey-4" size="10px;" />
               </div>
-              <div v-else class="q-gutter-md">
-                <q-icon name="fas fa-circle" color="grey-4" size="10px;" />
-                <q-icon name="fas fa-circle" color="blue" size="10px;" />
-                <q-icon name="fas fa-circle" color="grey-4" size="10px;" />
-              </div>
-              <div v-if="step3" class="q-gutter-md">
-                <q-icon name="fas fa-circle" color="grey-4" size="10px;" />
-                <q-icon name="fas fa-circle" color="grey-4" size="10px;" />
-                <q-icon name="fas fa-circle" color="blue" size="10px;" />
-              </div>
-            </div>
-            <div v-if="tampil" >
+            <div  class="form-container" >
               <q-form @submit="clickquestions" class="q-pa-md shadow-3" style="background:#F0FFFC;">
                 <div class="col q-pt-lg">
-                  <div class="q-pl-md q-pt-md" style="margin-bottom: -10px;">
+                  <div class="q-pl-md q-pt-md question-bank" style="margin-bottom: -10px;">
                     Question Bank
                   </div>
-                  <div class="q-pa-md row justify-left">
-                    <div class="q-gutter-sm row">
+                  <div class="row justify-left q-pt-md">
+                    <div class="col">
                       <q-radio
                         v-model="questionBank"
                         val="public"
@@ -67,7 +55,7 @@
                       <!-- <q-checkbox v-model="publicQustion" /> -->
                       <!-- <p class="q-pt-md">Public Question</p> -->
                     </div>
-                    <div class="q-gutter-sm row q-pl-xl">
+                    <div class="col ">
                       <q-radio
                         v-model="questionBank"
                         val="private"
@@ -149,13 +137,13 @@
                       style="color: blue;"
                     />
                   </div>
-                  <div class="col-6">
+                  <div class="col-md-6 col-sm-3">
                     <q-select
                       disable
                       label="custom number (premium)"
                       dropdown-icon="edit"
                       class="bg-grey-6 q-px-md"
-                      style="border-radius: 3px; height: 40px;"
+                      style="border-radius: 3px; height: 37px;"
                       borderless
                       v-model="questionsId"
                       :options="optionsId"
@@ -168,7 +156,7 @@
                   </div>
 
                   <div class="row q-px-md q-gutter-sm">
-                    <div class="col-4">
+                    <div class="col-xs-12 col-sm-6 col-md-4">
                       <div class="q-pb-md q-pt-sm">
                         Topics
                       </div>
@@ -180,7 +168,7 @@
                         :options="topicsOptions"
                       />
                     </div>
-                    <div class="col-4">
+                    <div class="col-xs-12 col-sm-6 col-md-4">
                       <div class="q-pb-md q-pt-sm">
                         Learning Objectives
                       </div>
@@ -192,7 +180,7 @@
                         :options="learningObjectivesOptions"
                       />
                     </div>
-                    <div class="col-3">
+                     <div class="col-xs-12 col-sm-6 col-md-4">
                       <div class="q-pb-md q-pt-sm">
                         Level & Subject
                       </div>
@@ -264,13 +252,26 @@
                 </div>
               </q-form>
             </div>
-            <div v-else>
+          </div>
+            <div v-else class="question-container"  >
                <div>
                   <q-dialog v-model="openFlag">
                  <Flag v-model="openFlag" />
                   </q-dialog>
               </div>
-              <q-card style=" width: 120%;">
+              <div class=" q-pt-md  q-gutter-md q-pb-md">
+              <div  class="q-gutter-md">
+                <q-icon name="fas fa-circle" color="grey-4" size="10px;" />
+                <q-icon name="fas fa-circle" color="blue" size="10px;" />
+                <q-icon name="fas fa-circle" color="grey-4" size="10px;" />
+              </div>
+              <div v-if="step3" class="q-gutter-md">
+                <q-icon name="fas fa-circle" color="grey-4" size="10px;" />
+                <q-icon name="fas fa-circle" color="grey-4" size="10px;" />
+                <q-icon name="fas fa-circle" color="blue" size="10px;" />
+              </div>
+            </div>
+              <q-card class="header-content" >
                 <q-card-actions class="bg-primary" align="between">
                   <div class="">
                     <div class="text-h6 text-white">Generate Question</div>
@@ -305,15 +306,13 @@
                   </div>
                 </q-card-actions>
               </q-card>
-              <q-scroll-area style="height: 700px; width: 120%;">
+              <!-- <q-scroll-area style="height: 700px; width: 120%;"> -->
               <div >
                  <transition-group name="list" tag="div">
-                <q-card v-for="(question, index) in questions" :key="question.id" class="" style=" width: 100%;">
-                  <q-card-actions style="background-color:#FFF1BD;" align="between">
-                    <div class="">
+                <q-card  v-for="(question, index) in questions" :key="question.id" class="content-question q-my-md" >
+                  <q-card-actions  style="background-color:#FFF1BD;" align="between">
                       <div
-                        class="col "
-                        style="border-radius: 20px; height:30px; width: 120px; background:#FED33B"
+                        style="max-width: 100px; border-radius: 20px; height:30px; width: 120px; background:#FED33B"
                       >
                         <q-select
                           input-style="color:white;"
@@ -329,9 +328,7 @@
                           "
                         />
                       </div>
-                    </div>
-
-                    <div class=" q-gutter-sm q-pr-md">
+                    <div class=" text-right q-gutter-sm ">
                       <div class="text-red">
                         [Whole Numbers] Addition and Substraction of Whole
                         Numbers
@@ -344,12 +341,12 @@
                   <q-card-actions align="between">
                     <div class="row">
                     <div class="col q-pa-sm">
-                      <q-item-label class="text-black"
+                      <q-item-label class="text-question text-black text-body1"
                         >{{ question.descriptions }}</q-item-label
                       >
                     </div>
-                    <div class="q-pt-sm col" style="margin-right: -30px;">
-                      <div class="text-center q-gutter-sm" style="margin-bottom: -90px;">
+                    <div class="btn-question q-pt-sm col" >
+                      <div class="text-right q-gutter-sm" >
                         <q-btn
                       flat
                       @click="openFlag = true"
@@ -383,13 +380,12 @@
                 </q-card>
                 </transition-group>
               </div>
-                </q-scroll-area>
-              <div class="text-right" style="margin-right: -100px;">
+                <!-- </q-scroll-area> -->
+              <div class="q-py-lg btn-back text-right" >
                 <q-btn label="back" @click="backClick" color="primary" style="width: 90px" />
               </div>
             </div>
           </div>
-        </div>
       </div>
     </div>
   </div>
@@ -628,9 +624,10 @@ export default {
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;800;600&display=swap');
-.container{
+.container {
   font-family: 'Open Sans', sans-serif;
   font-weight:500;
+
 }
 .doted {
   border-top: 2px dashed #000;
@@ -663,7 +660,7 @@ button.active {
 }
 .form-container {
   width: 100%;
-  max-width: 600px;
+  max-width: 800px;
 }
 .list-enter,
 .list-leave-to {
@@ -683,17 +680,90 @@ div.b {
   font-size: 15px;
 }
 
-/* header
-{
-    background: green;
-    height: 50px;
-} */
-
 .side-smart {
-  margin-bottom: -110px;
+  margin-bottom: 0px;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-Style Attribute {
-    color: white;
+.sidebar {
+  margin: 0;
+  padding: 0;
+  width: 500px;
+  background-color: #f1f1f1;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+
+.content {
+  margin-left: 700px;
+  padding: 1px 20px;
+  height: 1000px;
+}
+.content-question{
+    width: 100%;
+  }
+.header-content {
+    width: 100%;
+  }
+.btn-question {
+  margin-right: 0px;
+}
+.question-container {
+  padding: 10px 50px 10px 50px;
+}
+.text-question {
+  line-height: 2.6;
+}
+
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .header-content {
+    width: 100%;
+  }
+  .content-question{
+    width: 100% !important;
+  }
+  .btn-back {
+  margin-right: 10px;
+}
+  .sidebar a {float: left;}
+  div.content {margin-left: 0;}
+}
+.sub-content-question {
+  flex-direction: column-reverse;
+  display: flex;
+}
+.question-bank {
+  margin-left: -5px;
+}
+.question-container {
+  padding: 10px 10px 10px 10px;
+}
+
+@media screen and (max-width: 400px) {
+.question-container {
+  padding: 10px 10px 10px 10px;
+}
+}
+@media screen and (max-width: 350px) {
+  /* .header-content {
+    width: 100%;
+  }
+  .content-question{
+    width: 100% !important;
+  }
+  .sidebar a {
+    text-align: center;
+    float: none;
+  } */
 }
 </style>
