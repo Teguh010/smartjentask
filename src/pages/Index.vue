@@ -254,60 +254,15 @@
             </div>
           </div>
             <div v-else class="question-container"  >
-               <div>
-                  <q-dialog v-model="openFlag">
+              <div>
+               <q-dialog v-model="openFlag">
                  <Flag v-model="openFlag" />
                   </q-dialog>
-              </div>
-              <div class=" q-gutter-md q-pb-md">
-              <div  class="q-gutter-md">
-                <q-icon name="fas fa-circle" color="grey-4" size="10px;" />
-                <q-icon name="fas fa-circle" color="blue" size="10px;" />
-                <q-icon name="fas fa-circle" color="grey-4" size="10px;" />
-              </div>
-              <div v-if="step3" class="q-gutter-md">
-                <q-icon name="fas fa-circle" color="grey-4" size="10px;" />
-                <q-icon name="fas fa-circle" color="grey-4" size="10px;" />
-                <q-icon name="fas fa-circle" color="blue" size="10px;" />
-              </div>
-            </div>
-              <q-card class="header-content" >
-                <q-card-actions class="bg-primary" align="between">
-                  <div class="">
-                    <div class="text-h6 text-white">Generate Question</div>
                   </div>
-                  <div class=" q-gutter-sm " >
-                    <q-btn
-                    @click="openFlag = true"
-                      flat
-                      class="bg-red text-capitalize"
-                      dense
-                      color="black"
-                      label="flag"
-                      style="width: 90px;"
-                    />
-                    <q-btn
-                      flat
-                       class="text-capitalize"
-                      dense
-                      color="black"
-                      label="Mqc"
-                      style="width: 90px; background: #93F0EB"
-                    />
-                    <q-btn
-                      flat
-                      @click="regenerated()"
-                       class="text-capitalize"
-                      dense
-                      color="black"
-                      label="Regenerated All"
-                      style="width: 120px; background: #62F883"
-                    />
-                  </div>
-                </q-card-actions>
-              </q-card>
+               <q-page-container>
+        <q-page >
               <!-- <q-scroll-area style="height: 700px; width: 120%;"> -->
-              <div >
+              <div style="padding-top: 100px;" >
                  <transition-group name="list" tag="div">
                 <q-card  v-for="(question, index) in questions" :key="question.id" class="content-question q-my-md" >
                   <q-card-actions  style="background-color:#FFF1BD;" align="between">
@@ -384,6 +339,66 @@
               <div class="q-py-lg btn-back text-right" >
                 <q-btn label="back" @click="backClick" color="primary" style="width: 90px" />
               </div>
+               <q-page-sticky style="position: fixed;
+                  z-index: 5;" position="top-left" :offset="[0, 0]" >
+             <div  class="bg-white q-pa-lg" style="width: 100vw;">
+            </div>
+          </q-page-sticky>
+               <q-page-sticky style="position: fixed;
+                  z-index: 10;" position="top-left" :offset="[0, 4]" >
+             <div  class="dot-top q-gutter-md q-pb-md">
+              <div  class="q-gutter-md" >
+                <q-icon name="fas fa-circle" color="grey-4" size="10px;" />
+                <q-icon name="fas fa-circle" color="blue" size="10px;" />
+                <q-icon name="fas fa-circle" color="grey-4" size="10px;" />
+              </div>
+              <div v-if="step3" class="q-gutter-md">
+                <q-icon name="fas fa-circle" color="grey-4" size="10px;" />
+                <q-icon name="fas fa-circle" color="grey-4" size="10px;" />
+                <q-icon name="fas fa-circle" color="blue" size="10px;" />
+              </div>
+            </div>
+          </q-page-sticky>
+                 <q-page-sticky  :offset="[6, 45]" expand position="top" style="position: fixed;
+                  z-index: 10;">
+              <q-card class="header-content" >
+                <q-card-actions class="bg-primary" align="between">
+                  <div class="">
+                    <div class="text-h6 text-white">Generate Question</div>
+                  </div>
+                  <div class=" q-gutter-sm " >
+                    <q-btn
+                    @click="openFlag = true"
+                      flat
+                      class="bg-red text-capitalize"
+                      dense
+                      color="black"
+                      label="flag"
+                      style="width: 90px;"
+                    />
+                    <q-btn
+                      flat
+                       class="text-capitalize"
+                      dense
+                      color="black"
+                      label="Mqc"
+                      style="width: 90px; background: #93F0EB"
+                    />
+                    <q-btn
+                      flat
+                      @click="regenerated()"
+                       class="text-capitalize"
+                      dense
+                      color="black"
+                      label="Regenerated All"
+                      style="width: 120px; background: #62F883"
+                    />
+                  </div>
+                </q-card-actions>
+              </q-card>
+               </q-page-sticky>
+        </q-page>
+               </q-page-container>
             </div>
           </div>
       </div>
@@ -719,7 +734,9 @@ div.b {
 .text-question {
   line-height: 2.6;
 }
-
+.dot-top{
+  posistion: fixed;
+}
 @media screen and (max-width: 700px) {
   .sidebar {
     width: 100%;
