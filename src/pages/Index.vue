@@ -40,9 +40,9 @@
                 <q-icon name="fas fa-circle" color="grey-4" size="10px;" />
               </div>
             <div  class="form-container" >
-              <q-form @submit="clickquestions" class="q-pa-md shadow-3" style="background:#F0FFFC;">
+              <q-form @submit="clickquestions" class=" shadow-3" style="background:#F0FFFC;">
                 <div class="col q-pt-lg">
-                  <div class="q-pl-md q-pt-md question-bank" style="margin-bottom: -10px;">
+                  <div class="q-pl-md q-pt-md question-bank">
                     Question Bank
                   </div>
                   <div class="row justify-left q-pt-md">
@@ -66,11 +66,11 @@
                   <hr class="doted" />
                 </div>
 
-                <div class="q-pl-md q-pb-sm q-pt-sm">
+                <div class="q-pl-sm q-pb-sm q-pt-sm">
                   Number Of Question
                 </div>
 
-                <div class="row q-px-md ">
+                <div class="row q-px-sm ">
                   <div class="col">
                     <q-btn
                       label="1"
@@ -259,7 +259,7 @@
                  <Flag v-model="openFlag" />
                   </q-dialog>
               </div>
-              <div class=" q-pt-md  q-gutter-md q-pb-md">
+              <div class=" q-gutter-md q-pb-md">
               <div  class="q-gutter-md">
                 <q-icon name="fas fa-circle" color="grey-4" size="10px;" />
                 <q-icon name="fas fa-circle" color="blue" size="10px;" />
@@ -623,7 +623,7 @@ export default {
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;800;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap');
 .container {
   font-family: 'Open Sans', sans-serif;
   font-weight:500;
