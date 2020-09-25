@@ -1,12 +1,12 @@
 <template>
-  <div >
-    <div  style="background: #F0FFFC">
-      <div v-if="tampil" class="sidebar bg-primary ">
+  <div>
+    <div style="background: #f0fffc">
+      <div v-if="tampil" class="sidebar bg-primary">
         <div class="row q-gutter-x-md justify-center q-pt-lg">
           <h2 class="text-white">Smart</h2>
           <h2 class="text-bold text-white">Jen</h2>
         </div>
-        <div style="margin-top: 30px;">
+        <div style="margin-top: 30px">
           <hr class="hr-smart" />
         </div>
         <div class="q-pt-md">
@@ -26,25 +26,27 @@
             <q-img
               alt="smartjen logo"
               src="~assets/smartReading.png"
-              style="image-size: 10px;"
+              style="image-size: 10px"
             />
           </div>
         </div>
       </div>
-      <div  >
-          <div >
-            <div v-if="tampil" class="content ">
-              <div  class="q-gutter-md q-py-md">
-                <q-icon name="fas fa-circle" color="blue" size="10px;" />
-                <q-icon name="fas fa-circle" color="grey-4" size="10px;" />
-                <q-icon name="fas fa-circle" color="grey-4" size="10px;" />
-              </div>
-            <div  class="form-container" >
-              <q-form @submit="clickquestions" class=" shadow-3" style="background:#F0FFFC;">
+      <div>
+        <div>
+          <div v-if="tampil" class="content">
+            <div class="q-gutter-md q-py-md">
+              <q-icon name="fas fa-circle" color="blue" size="10px;" />
+              <q-icon name="fas fa-circle" color="grey-4" size="10px;" />
+              <q-icon name="fas fa-circle" color="grey-4" size="10px;" />
+            </div>
+            <div class="form-container">
+              <q-form
+                @submit="clickquestions"
+                class="shadow-3"
+                style="background: #f0fffc"
+              >
                 <div class="col q-pt-lg">
-                  <div class="q-pl-md q-pt-md question-bank">
-                    Question Bank
-                  </div>
+                  <div class="q-pl-md q-pt-md question-bank">Question Bank</div>
                   <div class="row justify-left q-pt-md">
                     <div class="col">
                       <q-radio
@@ -55,7 +57,7 @@
                       <!-- <q-checkbox v-model="publicQustion" /> -->
                       <!-- <p class="q-pt-md">Public Question</p> -->
                     </div>
-                    <div class="col ">
+                    <div class="col">
                       <q-radio
                         v-model="questionBank"
                         val="private"
@@ -66,11 +68,9 @@
                   <hr class="doted" />
                 </div>
 
-                <div class="q-pl-sm q-pb-sm q-pt-sm">
-                  Number Of Question
-                </div>
+                <div class="q-pl-sm q-pb-sm q-pt-sm">Number Of Question</div>
 
-                <div class="row q-px-sm ">
+                <div class="row q-px-sm">
                   <div class="col">
                     <q-btn
                       label="1"
@@ -81,7 +81,7 @@
                       :class="{ active: active == 1 }"
                       class="button-number"
                       outline
-                      style="color: grey;"
+                      style="color: grey"
                     >
                     </q-btn>
                   </div>
@@ -95,7 +95,7 @@
                       class="button-number"
                       label="2"
                       outline
-                      style="color: grey;"
+                      style="color: grey"
                     />
                   </div>
                   <div class="col">
@@ -108,7 +108,7 @@
                       class="button-number"
                       label="3"
                       outline
-                      style="color: grey;"
+                      style="color: grey"
                     />
                   </div>
                   <div class="col">
@@ -121,7 +121,7 @@
                       class="button-number"
                       label="4"
                       outline
-                      style="color: grey;"
+                      style="color: grey"
                     />
                   </div>
                   <div class="col">
@@ -134,7 +134,7 @@
                       class="button-number"
                       label="5"
                       outline
-                      style="color: blue;"
+                      style="color: blue"
                     />
                   </div>
                   <div class="col-md-6 col-sm-3">
@@ -143,7 +143,7 @@
                       label="custom number (premium)"
                       dropdown-icon="edit"
                       class="bg-grey-6 q-px-md"
-                      style="border-radius: 3px; height: 37px;"
+                      style="border-radius: 3px; height: 37px"
                       borderless
                       v-model="questionsId"
                       :options="optionsId"
@@ -157,36 +157,30 @@
 
                   <div class="row q-px-md q-gutter-sm">
                     <div class="col-xs-12 col-sm-6 col-md-4">
-                      <div class="q-pb-md q-pt-sm">
-                        Topics
-                      </div>
+                      <div class="q-pb-md q-pt-sm">Topics</div>
                       <q-select
                         class="bg-grey-6 q-px-sm"
-                        style="border-radius: 3px; height: 40px;"
+                        style="border-radius: 3px; height: 40px"
                         borderless
                         v-model="topicsOptionsSelected"
                         :options="topicsOptions"
                       />
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-4">
-                      <div class="q-pb-md q-pt-sm">
-                        Learning Objectives
-                      </div>
+                      <div class="q-pb-md q-pt-sm">Learning Objectives</div>
                       <q-select
                         class="bg-grey-6 q-px-sm"
-                        style="border-radius: 3px; height: 40px;"
+                        style="border-radius: 3px; height: 40px"
                         borderless
                         v-model="learningObjectivesOptionsSelected"
                         :options="learningObjectivesOptions"
                       />
                     </div>
-                     <div class="col-xs-12 col-sm-6 col-md-4">
-                      <div class="q-pb-md q-pt-sm">
-                        Level & Subject
-                      </div>
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                      <div class="q-pb-md q-pt-sm">Level & Subject</div>
                       <q-select
                         class="bg-grey-6 q-px-sm"
-                        style="border-radius: 3px; height: 40px;"
+                        style="border-radius: 3px; height: 40px"
                         borderless
                         v-model="levelnSubjectOptionsSelected"
                         :options="levelnSubjectOptions"
@@ -197,51 +191,47 @@
                 <div class="q-pt-md">
                   <hr class="doted" />
                 </div>
-                <div class="q-pl-md q-pt-md">
-                  Question Types
-                </div>
+                <div class="q-pl-md q-pt-md">Question Types</div>
                 <div class="q-px-sm row justify-left">
                   <div class="q-gutter-sm row">
                     <q-radio
-                        v-model="questionsTypesMcq"
-                        val="MCQ"
-                        label="MCQ"
-                      />
+                      v-model="questionsTypesMcq"
+                      val="MCQ"
+                      label="MCQ"
+                    />
                   </div>
                   <div class="q-gutter-sm row q-pl-xl">
-                     <q-radio
-                        v-model="questionsTypesMcq"
-                        val="Non-MCQ"
-                        label="Non-MCQ"
-                      />
+                    <q-radio
+                      v-model="questionsTypesMcq"
+                      val="Non-MCQ"
+                      label="Non-MCQ"
+                    />
                   </div>
                 </div>
                 <div class="q-pt-md">
                   <hr class="doted" />
                 </div>
-                <div class="q-pl-md  q-pt-md">
-                  Dificullity Level
-                </div>
+                <div class="q-pl-md q-pt-md">Dificullity Level</div>
                 <div class="q-pa-sm row justify-left">
                   <div class="q-gutter-sm row">
                     <q-checkbox v-model="difficultyLevelOptionsEasy" />
                     <p class="q-pt-md">Easy</p>
                   </div>
-                  <div class="q-gutter-sm row ">
+                  <div class="q-gutter-sm row">
                     <q-checkbox v-model="difficultyLevelOptionsNormal" />
                     <p class="q-pt-md">Normal</p>
                   </div>
-                  <div class="q-gutter-sm row ">
+                  <div class="q-gutter-sm row">
                     <q-checkbox v-model="difficultyLevelOptionsHard" />
                     <p class="q-pt-md">Hard</p>
                   </div>
-                  <div class="q-gutter-sm row ">
+                  <div class="q-gutter-sm row">
                     <q-checkbox v-model="difficultyLevelOptionsGenius" />
                     <p class="q-pt-md">Genius</p>
                   </div>
                 </div>
                 <div class="q-pl-md q-pb-lg q-pt-md">
-                  <q-btn label="Submit" type="submit" color="primary" />
+                  <q-btn label="Submit" @click="scrollToTop" type="submit" color="primary" />
                   <q-btn
                     label="Reset"
                     type="reset"
@@ -253,154 +243,198 @@
               </q-form>
             </div>
           </div>
-            <div v-else class="question-container"  >
-              <div>
-               <q-dialog v-model="openFlag">
-                 <Flag v-model="openFlag" />
-                  </q-dialog>
-                  </div>
-               <q-page-container>
-        <q-page >
-              <!-- <q-scroll-area style="height: 700px; width: 120%;"> -->
-              <div style="padding-top: 100px;" >
-                 <transition-group name="list" tag="div">
-                <q-card  v-for="(question, index) in questions" :key="question.id" class="content-question q-my-md" >
-                  <q-card-actions  style="background-color:#FFF1BD;" align="between">
-                      <div
-                        style="max-width: 100px; border-radius: 20px; height:30px; width: 120px; background:#FED33B"
+          <div v-else class="question-container">
+            <div>
+              <q-dialog v-model="openFlag">
+                <Flag v-model="openFlag" />
+              </q-dialog>
+            </div>
+            <q-page-container>
+              <q-page>
+                <!-- <q-scroll-area style="height: 700px; width: 120%;"> -->
+                <div style="padding-top: 100px">
+                  <transition-group name="list" tag="div">
+                    <q-card
+                      v-for="(question, index) in questions"
+                      :key="question.id"
+                      class="content-question q-my-md"
+                    >
+                      <q-card-actions
+                        style="background-color: #fff1bd"
+                        align="between"
                       >
-                        <q-select
-                          input-style="color:white;"
-                          style="height:38px !important;"
-                          behavior="menu"
-                          borderless
-                          class="q-px-lg"
-                          :options="optionsTrain"
-                          :value="index + 1"
-                          @input="
-                            newIndex =>
-                              moveArrayItemToNewIndex(index, newIndex - 1)
+                        <div
+                          style="
+                            max-width: 100px;
+                            border-radius: 20px;
+                            height: 30px;
+                            width: 120px;
+                            background: #fed33b;
                           "
+                        >
+                          <q-select
+                            input-style="color:white;"
+                            style="height: 38px !important"
+                            behavior="menu"
+                            borderless
+                            class="q-px-lg"
+                            :options="optionsTrain"
+                            :value="index + 1"
+                            @input="
+                              (newIndex) =>
+                                moveArrayItemToNewIndex(index, newIndex - 1)
+                            "
+                          />
+                        </div>
+                        <div class="text-right q-gutter-sm">
+                          <div class="text-red">
+                            [Whole Numbers] Addition and Substraction of Whole
+                            Numbers
+                          </div>
+                          <div class="text-right text-red">
+                            ( 2 Mark, Normal )
+                          </div>
+                        </div>
+                      </q-card-actions>
+                      <q-card-actions align="between">
+                        <div class="row">
+                          <div class="col q-pa-sm">
+                            <q-item-label
+                              class="text-question text-black text-body1"
+                              >{{ question.descriptions }}</q-item-label
+                            >
+                          </div>
+                          <div class="btn-question q-pt-sm col">
+                            <div class="text-right q-gutter-sm">
+                              <q-btn
+                                flat
+                                @click="openFlag = true"
+                                class="bg-red text-capitalize"
+                                dense
+                                color="white"
+                                label="flag"
+                                style="width: 90px"
+                              />
+                              <q-btn
+                                flat
+                                class="text-capitalize"
+                                dense
+                                color="black"
+                                label="Mqc"
+                                style="width: 90px; background: #93f0eb"
+                              />
+                              <q-btn
+                                flat
+                                @click="regenerated()"
+                                class="text-capitalize"
+                                dense
+                                color="black"
+                                label="Regenerated"
+                                style="width: 90px; background: #62f883"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </q-card-actions>
+                    </q-card>
+                  </transition-group>
+                </div>
+                <!-- </q-scroll-area> -->
+                <div class="q-py-lg btn-back text-right">
+                  <q-btn
+                    label="back"
+                    @click="backClick(); scrollToTop()"
+                    color="primary"
+                    style="width: 90px"
+                  />
+                </div>
+                <q-page-sticky
+                  style="position: fixed; z-index: 5"
+                  position="top-left"
+                  :offset="[0, 0]"
+                >
+                  <div class="bg-white q-pa-lg" style="width: 100vw"></div>
+                </q-page-sticky>
+                <q-page-sticky
+                  style="position: fixed; z-index: 10"
+                  position="top-left"
+                  :offset="[0, 4]"
+                >
+                  <div class="dot-top q-gutter-md q-pb-md">
+                    <div class="q-gutter-md">
+                      <q-icon
+                        name="fas fa-circle"
+                        color="grey-4"
+                        size="10px;"
+                      />
+                      <q-icon name="fas fa-circle" color="blue" size="10px;" />
+                      <q-icon
+                        name="fas fa-circle"
+                        color="grey-4"
+                        size="10px;"
+                      />
+                    </div>
+                    <div v-if="step3" class="q-gutter-md">
+                      <q-icon
+                        name="fas fa-circle"
+                        color="grey-4"
+                        size="10px;"
+                      />
+                      <q-icon
+                        name="fas fa-circle"
+                        color="grey-4"
+                        size="10px;"
+                      />
+                      <q-icon name="fas fa-circle" color="blue" size="10px;" />
+                    </div>
+                  </div>
+                </q-page-sticky>
+                <q-page-sticky
+                  :offset="[6, 45]"
+                  expand
+                  position="top"
+                  style="position: fixed; z-index: 10"
+                >
+                  <q-card class="header-content">
+                    <q-card-actions class="bg-primary" align="between">
+                      <div class="">
+                        <div class="text-h6 text-white">Generate Question</div>
+                      </div>
+                      <div class="q-gutter-sm">
+                        <q-btn
+                          @click="openFlag = true"
+                          flat
+                          class="bg-red text-capitalize"
+                          dense
+                          color="black"
+                          label="flag"
+                          style="width: 90px"
+                        />
+                        <q-btn
+                          flat
+                          class="text-capitalize"
+                          dense
+                          color="black"
+                          label="Mqc"
+                          style="width: 90px; background: #93f0eb"
+                        />
+                        <q-btn
+                          flat
+                          @click="regenerated()"
+                          class="text-capitalize"
+                          dense
+                          color="black"
+                          label="Regenerated All"
+                          style="width: 120px; background: #62f883"
                         />
                       </div>
-                    <div class=" text-right q-gutter-sm ">
-                      <div class="text-red">
-                        [Whole Numbers] Addition and Substraction of Whole
-                        Numbers
-                      </div>
-                      <div class="text-right text-red">
-                        ( 2 Mark, Normal )
-                      </div>
-                    </div>
-                  </q-card-actions>
-                  <q-card-actions align="between">
-                    <div class="row">
-                    <div class="col q-pa-sm">
-                      <q-item-label class="text-question text-black text-body1"
-                        >{{ question.descriptions }}</q-item-label
-                      >
-                    </div>
-                    <div class="btn-question q-pt-sm col" >
-                      <div class="text-right q-gutter-sm" >
-                        <q-btn
-                      flat
-                      @click="openFlag = true"
-                      class="bg-red text-capitalize"
-                      dense
-                      color="white"
-                      label="flag"
-                      style="width: 90px;"
-                    />
-                    <q-btn
-                      flat
-                       class="text-capitalize"
-                      dense
-                      color="black"
-                      label="Mqc"
-                      style="width: 90px; background: #93F0EB;"
-                    />
-                    <q-btn
-                      flat
-                      @click="regenerated()"
-                       class="text-capitalize"
-                      dense
-                      color="black"
-                      label="Regenerated"
-                      style="width: 90px; background: #62F883"
-                    />
-                      </div>
-                    </div>
-                    </div>
-                  </q-card-actions>
-                </q-card>
-                </transition-group>
-              </div>
-                <!-- </q-scroll-area> -->
-              <div class="q-py-lg btn-back text-right" >
-                <q-btn label="back" @click="backClick" color="primary" style="width: 90px" />
-              </div>
-               <q-page-sticky style="position: fixed;
-                  z-index: 5;" position="top-left" :offset="[0, 0]" >
-             <div  class="bg-white q-pa-lg" style="width: 100vw;">
-            </div>
-          </q-page-sticky>
-               <q-page-sticky style="position: fixed;
-                  z-index: 10;" position="top-left" :offset="[0, 4]" >
-             <div  class="dot-top q-gutter-md q-pb-md">
-              <div  class="q-gutter-md" >
-                <q-icon name="fas fa-circle" color="grey-4" size="10px;" />
-                <q-icon name="fas fa-circle" color="blue" size="10px;" />
-                <q-icon name="fas fa-circle" color="grey-4" size="10px;" />
-              </div>
-              <div v-if="step3" class="q-gutter-md">
-                <q-icon name="fas fa-circle" color="grey-4" size="10px;" />
-                <q-icon name="fas fa-circle" color="grey-4" size="10px;" />
-                <q-icon name="fas fa-circle" color="blue" size="10px;" />
-              </div>
-            </div>
-          </q-page-sticky>
-                 <q-page-sticky  :offset="[6, 45]" expand position="top" style="position: fixed;
-                  z-index: 10;">
-              <q-card class="header-content" >
-                <q-card-actions class="bg-primary" align="between">
-                  <div class="">
-                    <div class="text-h6 text-white">Generate Question</div>
-                  </div>
-                  <div class=" q-gutter-sm " >
-                    <q-btn
-                    @click="openFlag = true"
-                      flat
-                      class="bg-red text-capitalize"
-                      dense
-                      color="black"
-                      label="flag"
-                      style="width: 90px;"
-                    />
-                    <q-btn
-                      flat
-                       class="text-capitalize"
-                      dense
-                      color="black"
-                      label="Mqc"
-                      style="width: 90px; background: #93F0EB"
-                    />
-                    <q-btn
-                      flat
-                      @click="regenerated()"
-                       class="text-capitalize"
-                      dense
-                      color="black"
-                      label="Regenerated All"
-                      style="width: 120px; background: #62F883"
-                    />
-                  </div>
-                </q-card-actions>
-              </q-card>
-               </q-page-sticky>
-        </q-page>
-               </q-page-container>
-            </div>
+                    </q-card-actions>
+                  </q-card>
+                </q-page-sticky>
+              </q-page>
+            </q-page-container>
           </div>
+        </div>
       </div>
     </div>
   </div>
@@ -632,17 +666,19 @@ export default {
 
       this.question = this.questionlist[this.random]
       console.log(this.question)
+    },
+    scrollToTop () {
+      window.scrollTo(0, 0)
     }
   }
 }
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap");
 .container {
-  font-family: 'Open Sans', sans-serif;
-  font-weight:500;
-
+  font-family: "Open Sans", sans-serif;
+  font-weight: 500;
 }
 .doted {
   border-top: 2px dashed #000;
@@ -670,7 +706,7 @@ export default {
   border-width: 2.1px;
 }
 button.active {
-  background-color:#3F3D56 !important;
+  background-color: #3f3d56 !important;
   color: white !important;
 }
 .form-container {
@@ -719,12 +755,12 @@ div.b {
   padding: 1px 20px;
   height: 1000px;
 }
-.content-question{
-    width: 100%;
-  }
+.content-question {
+  width: 100%;
+}
 .header-content {
-    width: 100%;
-  }
+  width: 100%;
+}
 .btn-question {
   margin-right: 0px;
 }
@@ -734,7 +770,7 @@ div.b {
 .text-question {
   line-height: 2.6;
 }
-.dot-top{
+.dot-top {
   posistion: fixed;
 }
 @media screen and (max-width: 700px) {
@@ -746,14 +782,18 @@ div.b {
   .header-content {
     width: 100%;
   }
-  .content-question{
+  .content-question {
     width: 100% !important;
   }
   .btn-back {
-  margin-right: 10px;
-}
-  .sidebar a {float: left;}
-  div.content {margin-left: 0;}
+    margin-right: 10px;
+  }
+  .sidebar a {
+    float: left;
+  }
+  div.content {
+    margin-left: 0;
+  }
 }
 .sub-content-question {
   flex-direction: column-reverse;
@@ -767,9 +807,9 @@ div.b {
 }
 
 @media screen and (max-width: 400px) {
-.question-container {
-  padding: 10px 10px 10px 10px;
-}
+  .question-container {
+    padding: 10px 10px 10px 10px;
+  }
 }
 @media screen and (max-width: 350px) {
   /* .header-content {
