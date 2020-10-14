@@ -4,7 +4,7 @@ A Quasar Framework app
 
 ## Install the dependencies
 ```bash
-yarn mantapp moon
+yarn mantapp moon dua
 ```
 
 ### Start the app in development mode (hot-code reloading, error reporting, etc.)
